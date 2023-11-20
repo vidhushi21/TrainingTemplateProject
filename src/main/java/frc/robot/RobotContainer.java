@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
 public class RobotContainer {
-  private final DriveSubsystem m_drivetrain = new DriveSubsystem();
+  private final DriveSubsystem m_drivetrain = new DriveSubsystem(0);
   private final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
@@ -24,6 +24,8 @@ public class RobotContainer {
    * CommandXboxController Xbox} class.
    */
   private void configureBindings() {
+    m_driverController.x().onTrue(m_Drivesubsystem.moverobot());
+    m_driverController.y().onTrue(m_Drivesubsystem.moverobot());
     //YOUR BINDINGS HERE
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
